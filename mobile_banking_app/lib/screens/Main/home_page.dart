@@ -10,27 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-   List<Icon> optionIcon = [
-    Icon(Icons.notifications),
-    Icon(Icons.notifications),
-    Icon(Icons.notifications),
-    Icon(Icons.notifications),
-  ];
-
-  List label = [
-    "Transfer",
-    "Voucher",
-    "Bill",
-    "More"
-  ];
-
-  List<Color> optionColor = [
-    const Color.fromARGB(104, 76, 175, 79),
-    const Color.fromARGB(112, 255, 153, 0),
-    const Color.fromARGB(156, 155, 39, 176),
-    const Color.fromARGB(149, 0, 0, 0)
-  ];
-
   @override
   Widget build(BuildContext context) {
   
@@ -40,6 +19,16 @@ class _HomePageState extends State<HomePage> {
     void navigate (pageName) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => pageName));
     }
+
+     
+   Widget _build_Transaction_History () {
+      return Container(
+        width: screenWidth,
+        height: screenHeight * 0.09,
+        decoration: BoxDecoration(border: Border.all(width: 1.0,color: Colors.purple),borderRadius: BorderRadius.circular(10.0)),
+      );
+    };
+
     return
     Scaffold(body: 
      Container(
@@ -123,7 +112,8 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(height: 30.0,),
         Container(
           width: screenWidth,
-          child: Row(
+          child:  
+          Row(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
             GestureDetector(onTap: () {},
@@ -193,8 +183,9 @@ class _HomePageState extends State<HomePage> {
           const Text('Send Money',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),),
           TextButton(onPressed: () {
             //Navigate to send money page
-          }, child: Text("View all",style: TextStyle(color: Colors.purple,fontWeight: FontWeight.w500),))
-        ]),)
+          }, child: const Text("View all",style: TextStyle(color: Colors.purple,fontWeight: FontWeight.w500),))
+        ]),),
+        _build_Transaction_History()
       ],)
     ),);
   }
@@ -216,6 +207,6 @@ TextStyle boldStyle = const TextStyle(
 
 TextStyle labelText = const TextStyle(
   color: Colors.black,
-  fontSize : 16.0,
+  fontSize : 15.0,
   fontWeight: FontWeight.bold
 );

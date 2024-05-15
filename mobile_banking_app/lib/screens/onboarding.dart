@@ -14,7 +14,7 @@ class Onboarding extends StatelessWidget {
     void navigate (pageName) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => pageName));
     }
-
+    
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0),
@@ -68,9 +68,9 @@ class Onboarding extends StatelessWidget {
                 ),
                 )
                 ),
-                TextButton(onPressed: () {
-                  navigate(const HomePage());
-                }, child: Text("skip",style: TextStyle(color: Colors.black.withOpacity(0.5)),)),
+                // TextButton(onPressed: () {
+                //   navigate(const HomePage());
+                // }, child: Text("skip",style: TextStyle(color: Colors.black.withOpacity(0.5)),)),
                 // Expanded(
                 // flex: 1,  
                 // child: Container())

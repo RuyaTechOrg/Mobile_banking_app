@@ -22,11 +22,53 @@ class _HomePageState extends State<HomePage> {
 
      
    Widget _build_Transaction_History () {
-      return Container(
+      return 
+      GestureDetector(
+      onTap: () {
+        null;
+      },  
+      child: 
+      Column(children : [
+      Container(
+        padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
         width: screenWidth,
-        height: screenHeight * 0.09,
-        decoration: BoxDecoration(border: Border.all(width: 1.0,color: Colors.purple),borderRadius: BorderRadius.circular(10.0)),
-      );
+        height: screenHeight * 0.12,
+        decoration: BoxDecoration(
+        color: const Color.fromARGB(153, 236, 236, 236),  
+        borderRadius: BorderRadius.circular(10.0)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          Row(children: [
+          Container(
+          width: screenWidth * 0.15,
+          height: screenWidth * 0.15,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0),color: Colors.purple,),  
+          child: 
+          Image.asset('images/Freepik___Create_great_designs__faster-removebg-preview.png',scale: 0.8,)
+          ,),
+          const SizedBox(
+            width: 30.0,
+          ),
+          Container(
+          padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 10.0),  
+          child: 
+           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            const Text("Daniel Sivan",style: TextStyle(fontWeight: FontWeight.w500),),
+            const SizedBox(height: 10.0,),
+            Text('\$64.00',style: boldBlackStyle,)
+          ],)
+          ,),],),
+          Container(child: 
+            IconButton(onPressed: () {}, icon: Icon(Icons.list))
+          ,)
+        ]),
+      ),
+      const SizedBox(height : 10.0)
+      ])
+      ,);
     };
 
     return
@@ -56,9 +98,16 @@ class _HomePageState extends State<HomePage> {
             Text('Hi, John smith',style: TextStyle(fontSize: 14.0,color: Colors.black),),
             Text("Good Morning",style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold),)
           ],),],),
+          Container(
+          decoration: BoxDecoration(border: Border.all(width: 1.0,color : Color.fromARGB(255, 204, 204, 204)),
+          borderRadius: BorderRadius.circular(50.0)
+          ),  
+          child: 
           IconButton(  
           onPressed: () {
+            print('The notification button works!');
           }, icon: const Icon(Icons.notifications))
+          ,)
         ])
         ,),
         const SizedBox(height: 20.0,),
@@ -124,7 +173,7 @@ class _HomePageState extends State<HomePage> {
             height:65.0,
             decoration: BoxDecoration(color: Color.fromARGB(62, 10, 95, 13),borderRadius: BorderRadius.circular(10.0)),
             child: 
-            Center(child: Icon(Icons.arrow_upward,size: 30.0,color: Colors.green,),)
+            Center(child: Icon(Icons.arrow_upward,size: 30.0,color: const Color.fromARGB(139, 76, 175, 79),),)
             ),
             const SizedBox(height: 10.0,),
             Text("Transfer",style: labelText,)
@@ -136,7 +185,7 @@ class _HomePageState extends State<HomePage> {
             Container(  
             width: screenWidth * 0.16,
             height: 65.0,
-            decoration: BoxDecoration(color: Color.fromARGB(70, 255, 123, 0),borderRadius: BorderRadius.circular(10.0)),
+            decoration: BoxDecoration(color: Color.fromARGB(42, 255, 123, 0),borderRadius: BorderRadius.circular(10.0)),
             child: 
             const Center(child: Icon(Icons.brightness_auto,size: 30.0,color: Colors.orange,),)
             ),
@@ -152,7 +201,7 @@ class _HomePageState extends State<HomePage> {
             height: 65.0, 
             decoration: BoxDecoration(color: const Color.fromARGB(63, 33, 149, 243),borderRadius: BorderRadius.circular(10.0)),
             child: 
-            Center(child: Icon(Icons.insert_drive_file,size: 30.0,color: Colors.blue,),)
+            const Center(child: Icon(Icons.insert_drive_file,size: 30.0,color: Colors.blue,),)
             ),
             const SizedBox(height: 10.0,),
             Text("Bill",style: labelText,)
@@ -164,9 +213,9 @@ class _HomePageState extends State<HomePage> {
             Container(  
             width: screenWidth * 0.16,
             height: 65.0,
-             decoration: BoxDecoration(color: Color.fromARGB(36, 88, 0, 155),borderRadius: BorderRadius.circular(10.0)),
+             decoration: BoxDecoration(color: const Color.fromARGB(36, 88, 0, 155),borderRadius: BorderRadius.circular(10.0)),
             child: 
-            Center(child: Icon(Icons.apps,size: 30.0,color: Colors.purple,),)
+            const Center(child: Icon(Icons.apps,size: 30.0,color: Colors.purple,),)
             ),
             const SizedBox(height: 10.0,),
             Text("More",style: labelText,)
@@ -185,7 +234,10 @@ class _HomePageState extends State<HomePage> {
             //Navigate to send money page
           }, child: const Text("View all",style: TextStyle(color: Colors.purple,fontWeight: FontWeight.w500),))
         ]),),
-        _build_Transaction_History()
+        Container(child: Column(children: [
+          _build_Transaction_History(),
+          _build_Transaction_History()
+        ]),)
       ],)
     ),);
   }
@@ -208,5 +260,11 @@ TextStyle boldStyle = const TextStyle(
 TextStyle labelText = const TextStyle(
   color: Colors.black,
   fontSize : 15.0,
+  fontWeight: FontWeight.bold
+);
+
+TextStyle boldBlackStyle = const TextStyle(
+  color: Colors.black,
+  fontSize: 20.0,
   fontWeight: FontWeight.bold
 );

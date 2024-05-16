@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       Container(
         padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
         width: screenWidth,
-        height: screenHeight * 0.12,
+        height: screenHeight * 0.13,
         decoration: BoxDecoration(
         color: const Color.fromARGB(153, 236, 236, 236),  
         borderRadius: BorderRadius.circular(10.0)),
@@ -71,22 +71,29 @@ class _HomePageState extends State<HomePage> {
       ,);
     };
 
+
     return
     Scaffold(body: 
+    Container(
+    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+    width: screenWidth,
+    height: screenHeight,
+    child:
+    SingleChildScrollView(child: 
      Container(
-      padding: const EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 20.0),
+      padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
       width: screenWidth,
       height: screenHeight,
       decoration: const BoxDecoration(color: Colors.white),
       child: Column(children: [
         Container(
+        height: screenHeight * 0.11,
         width: MediaQuery.of(context).size.width,  
         child: 
         Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
           Row(children: [
-        
           CircleAvatar(
           backgroundColor: Color.fromARGB(218, 236, 193, 0),  
           child: Image.asset("images/Freepik___Create_great_designs__faster-removebg-preview.png",scale :0.8),),
@@ -112,21 +119,23 @@ class _HomePageState extends State<HomePage> {
         ,),
         const SizedBox(height: 20.0,),
         Container(
-        padding: const EdgeInsets.fromLTRB(30.0,10.0, 10.0, 20.0),
+        padding: const EdgeInsets.fromLTRB(30.0,20.0, 10.0, 20.0),
         width: screenWidth,
-        height: screenHeight * 0.27,
+        height: screenHeight * 0.28,
         decoration:  BoxDecoration(
         gradient: const LinearGradient(begin: Alignment.topCenter,
         end:Alignment.bottomCenter,
         colors: [ Color.fromARGB(218, 98, 2, 182),Color.fromARGB(246, 107, 19, 183)]
         ),  
         borderRadius: BorderRadius.circular(10.0)),
-        child: Column(
+        child:
+        SingleChildScrollView(child: 
+         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
           Text("Balance",style:blurStyle),
           Text("\$56,000",style:boldStyle),
-          const SizedBox(height : 30.0),
+          const SizedBox(height : 10.0),
           Container(
           width: screenWidth * 0.5,  
           child: 
@@ -157,6 +166,7 @@ class _HomePageState extends State<HomePage> {
             ],),)
           ],)
         ]),
+        )
         ),
         const SizedBox(height: 30.0,),
         Container(
@@ -170,7 +180,7 @@ class _HomePageState extends State<HomePage> {
             Column(children: [
             Container(  
             width: screenWidth * 0.16,
-            height:65.0,
+            height:60.0,
             decoration: BoxDecoration(color: Color.fromARGB(62, 10, 95, 13),borderRadius: BorderRadius.circular(10.0)),
             child: 
             Center(child: Icon(Icons.arrow_upward,size: 30.0,color: const Color.fromARGB(139, 76, 175, 79),),)
@@ -184,7 +194,7 @@ class _HomePageState extends State<HomePage> {
             Column(children: [
             Container(  
             width: screenWidth * 0.16,
-            height: 65.0,
+            height: 60.0,
             decoration: BoxDecoration(color: Color.fromARGB(42, 255, 123, 0),borderRadius: BorderRadius.circular(10.0)),
             child: 
             const Center(child: Icon(Icons.brightness_auto,size: 30.0,color: Colors.orange,),)
@@ -198,7 +208,7 @@ class _HomePageState extends State<HomePage> {
             Column(children: [
             Container( 
             width: screenWidth * 0.16,
-            height: 65.0, 
+            height: 60.0, 
             decoration: BoxDecoration(color: const Color.fromARGB(63, 33, 149, 243),borderRadius: BorderRadius.circular(10.0)),
             child: 
             const Center(child: Icon(Icons.insert_drive_file,size: 30.0,color: Colors.blue,),)
@@ -212,7 +222,7 @@ class _HomePageState extends State<HomePage> {
             Column(children: [
             Container(  
             width: screenWidth * 0.16,
-            height: 65.0,
+            height: 60.0,
              decoration: BoxDecoration(color: const Color.fromARGB(36, 88, 0, 155),borderRadius: BorderRadius.circular(10.0)),
             child: 
             const Center(child: Icon(Icons.apps,size: 30.0,color: Colors.purple,),)
@@ -225,6 +235,10 @@ class _HomePageState extends State<HomePage> {
         ),
         const SizedBox(height: 30.0,),
         Container(
+        height: MediaQuery.of(context).size.height * 0.35,
+        child:
+        Column(children: [
+        Container(
           width: screenWidth,
           child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -234,26 +248,38 @@ class _HomePageState extends State<HomePage> {
             //Navigate to send money page
           }, child: const Text("View all",style: TextStyle(color: Colors.purple,fontWeight: FontWeight.w500),))
         ]),),
-        Container(child: Column(children: [
+       Expanded(
+      child:
+      SingleChildScrollView(
+      child:
+       Column(
+        children: [
+          // Your other widgets...
           _build_Transaction_History(),
-          _build_Transaction_History()
-        ]),)
-      ],)
-    ),);
+          _build_Transaction_History(),
+          _build_Transaction_History(),
+        ],
+      ),
+    ),
+      )],)
+    ),
+    ]),)
+    )));
+    ;
   }
 }
 
 
 TextStyle blurStyle  = const TextStyle(
   color: Color.fromARGB(186, 255, 255, 255),
-  fontSize: 16.0,
+  fontSize: 15.0,
   fontWeight: FontWeight.w500
 );
 
 
 TextStyle boldStyle = const TextStyle(
     color: Colors.white,
-    fontSize: 20.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.w700
 );
 
